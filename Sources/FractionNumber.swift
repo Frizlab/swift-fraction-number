@@ -216,6 +216,22 @@ public struct FractionNumber : Sendable {
 		return FractionNumber(numerator: lhs.numerator, denominator: lhs.denominator * rhs)!
 	}
 	
+	public static func +=(lhs: inout FractionNumber, rhs: FractionNumber) {
+		lhs = lhs + rhs
+	}
+	
+	public static func -=(lhs: inout FractionNumber, rhs: FractionNumber) {
+		lhs = lhs - rhs
+	}
+	
+	public static func *=(lhs: inout FractionNumber, rhs: FractionNumber) {
+		lhs = lhs * rhs
+	}
+	
+	public static func /=(lhs: inout FractionNumber, rhs: FractionNumber) {
+		lhs = lhs / rhs
+	}
+	
 }
 
 
@@ -289,10 +305,6 @@ extension FractionNumber : SignedNumeric {
 	
 	public var magnitude: FractionNumber {
 		return .init(numerator: abs(numerator), denominator: abs(denominator))!
-	}
-	
-	public static func *=(lhs: inout FractionNumber, rhs: FractionNumber) {
-		lhs = lhs * rhs
 	}
 	
 }
